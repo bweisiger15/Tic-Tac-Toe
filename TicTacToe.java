@@ -57,7 +57,7 @@ public class TicTacToe
       System.out.println("Someone already went there! Choose another space!");
       getInfo();
     }
-    System.out.println("Your last move:");
+    System.out.println("Your previous move:");
     displayBoard();
     compPlayer();
   }
@@ -88,13 +88,77 @@ public class TicTacToe
       board[2][0] = 'O';
       
     }
-    System.out.println("Computer's last move:");
+    System.out.println("Computer's previous move:");
     displayBoard();
-    getInfo();
+    checkWin();
+    
   }
-  
-  
+  public static void checkWin()
+  {
+    if (board[1][1] == 'X'){
+      if (board[0][0] == 'X'){
+        if (board[2][2] == 'X'){
+          System.out.println("X wins");
+          initialBoard();
+        }
+      }
+      else if (board[0][1] == 'X'){
+        if (board[2][1] == 'X'){
+          System.out.println("X wins");
+          initialBoard();
+        }
+      }
+      else if (board[1][0] == 'X'){
+        if (board[1][2] == 'X'){
+          System.out.println("X wins");
+          initialBoard();
+        }
+      }
+      else if (board[2][0] == 'X'){
+        if (board[0][2] == 'X'){
+          System.out.println("X wins");
+          initialBoard();
+        }
+      }
+      
+    }
+    if (board[0][0] == 'X'){
+      if (board[0][1] == 'X'){
+        if (board[0][2] == 'X'){
+          System.out.println("X wins");
+          initialBoard();
+        }
+      }
+      else if (board[1][0] == 'X'){
+        if (board[2][0] == 'X'){
+          System.out.println("X wins");
+          initialBoard();
+        }
+      }
+    }
+    if (board[2][2] == 'X'){
+      if (board[0][2] == 'X') {
+        if(board[1][2] == 'X'){
+          System.out.println("X wins");
+          initialBoard();
+        }
+      }
+      
+      else if (board[2][0] == 'X') {
+        if (board[2][1] == 'X') {
+          System.out.println("X wins");
+          initialBoard();
+        }
+      }
+    }
+    
+    getInfo();
+    
+    
+  }
 }
+
+
 
 
 
