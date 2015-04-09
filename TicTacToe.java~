@@ -10,9 +10,10 @@ public class TicTacToe
     Scanner keyboard = new Scanner(System.in);
     
     System.out.println("Welcome! You'll play as X's");
-    initialBoard();
+    
     displayBoard();
-    determineStarter();
+    initialBoard();
+    
     
     
   }
@@ -38,6 +39,7 @@ public class TicTacToe
     for ( int r=0; r<3; r++ )
       for ( int c=0; c<3; c++ )
       board[r][c] = ' ';
+    determineStarter();
   }
   
   
@@ -88,74 +90,95 @@ public class TicTacToe
       board[1][1] = 'O';
     }
     //Wins
-    if(board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] != 'X')
+    else if(board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] != 'X')
       board[0][2] = 'O';
-    if(board[0][0] == 'O' && board[0][2] == 'O' && board[0][1] != 'X')
+    else if(board[0][0] == 'O' && board[0][2] == 'O' && board[0][1] != 'X')
       board[0][1] = 'O';
-    if(board[0][1] == 'O' && board[0][2] == 'O' && board[0][0] != 'X')
+    else if(board[0][1] == 'O' && board[0][2] == 'O' && board[0][0] != 'X')
       board[0][0] = 'O';
     
-    if(board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] != 'X')
+    else if(board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] != 'X')
       board[1][2] = 'O';
-    if(board[1][0] == 'O' && board[1][2] == 'O' && board[1][1] != 'X')
+    else if(board[1][0] == 'O' && board[1][2] == 'O' && board[1][1] != 'X')
       board[1][1] = 'O';
-    if(board[1][1] == 'O' && board[1][2] == 'O' && board[1][0] != 'X')
+    else if(board[1][1] == 'O' && board[1][2] == 'O' && board[1][0] != 'X')
       board[1][0] = 'O';
     
-    if(board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] != 'X')
+    else if(board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] != 'X')
       board[2][2] = 'O';
-    if(board[2][0] == 'O' && board[2][2] == 'O' && board[2][1] != 'X')
+    else if(board[2][0] == 'O' && board[2][2] == 'O' && board[2][1] != 'X')
       board[2][1] = 'O';
-    if(board[2][1] == 'O' && board[2][2] == 'O' && board[2][0] != 'X')
+    else if(board[2][1] == 'O' && board[2][2] == 'O' && board[2][0] != 'X')
       board[2][0] = 'O';
     
-    if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] != 'X')
+    else if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] != 'X')
       board[2][2] = 'O';
-    if(board[2][2] == 'O' && board[0][0] == 'O' && board[1][1] != 'X')
+    else if(board[2][2] == 'O' && board[0][0] == 'O' && board[1][1] != 'X')
       board[1][1] = 'O';
-    if(board[1][1] == 'O' && board[2][2] == 'O' && board[0][0] != 'X')
+    else if(board[1][1] == 'O' && board[2][2] == 'O' && board[0][0] != 'X')
       board[0][0] = 'O';
     
-    if(board[2][0] == 'O' && board[1][1] == 'O' && board[0][2] != 'X')
+    else if(board[2][0] == 'O' && board[1][1] == 'O' && board[0][2] != 'X')
       board[0][2] = 'O';
-    if(board[2][0] == 'O' && board[0][2] == 'O' && board[1][1] != 'X')
+    else if(board[2][0] == 'O' && board[0][2] == 'O' && board[1][1] != 'X')
       board[1][1] = 'O';
-    if(board[1][1] == 'O' && board[0][2] == 'O' && board[2][0] != 'X')
+    else if(board[1][1] == 'O' && board[0][2] == 'O' && board[2][0] != 'X')
       board[2][0] = 'O';
+    
+    else if(board[2][0] == 'O' && board[1][0] == 'O' && board[0][0] != 'X')
+      board[0][0] = 'O';
+    else if(board[2][0] == 'O' && board[0][0] == 'O' && board[1][0] != 'X')
+      board[1][0] = 'O';
+    else if(board[1][0] == 'O' && board[0][0] == 'O' && board[2][0] != 'X')
+      board[2][0] = 'O';
+    
+    else if(board[0][1] == 'O' && board[1][1] == 'O' && board[2][1] != 'X')
+      board[2][1] = 'O';
+    else if(board[1][1] == 'O' && board[2][1] == 'O' && board[0][1] != 'X')
+      board[0][1] = 'O';
+    else if(board[0][1] == 'O' && board[2][1] == 'O' && board[1][1] != 'X')
+      board[1][1] = 'O';
+    
+    else if(board[2][2] == 'O' && board[1][2] == 'O' && board[0][2] != 'X')
+      board[0][2] = 'O';
+    else if(board[0][2] == 'O' && board[2][2] == 'O' && board[1][2] != 'X')
+      board[1][2] = 'O';
+    else if(board[1][2] == 'O' && board[0][2] == 'O' && board[2][2] != 'X')
+      board[2][2] = 'O';
     ////BLOCKS
-    if(board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] != 'O')
+    else if(board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] != 'O')
       board[0][2] = 'O';
-    if(board[0][0] == 'X' && board[0][2] == 'X' && board[0][1] != 'O')
+    else if(board[0][0] == 'X' && board[0][2] == 'X' && board[0][1] != 'O')
       board[0][1] = 'O';
-    if(board[0][1] == 'X' && board[0][2] == 'X' && board[0][0] != 'O')
+    else if(board[0][1] == 'X' && board[0][2] == 'X' && board[0][0] != 'O')
       board[0][0] = 'O';
     
-    if(board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] != 'O')
+    else if(board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] != 'O')
       board[1][2] = 'O';
-    if(board[1][0] == 'X' && board[1][2] == 'X' && board[1][1] != 'O')
+    else if(board[1][0] == 'X' && board[1][2] == 'X' && board[1][1] != 'O')
       board[1][1] = 'O';
-    if(board[1][1] == 'X' && board[1][2] == 'X' && board[1][0] != 'O')
+    else if(board[1][1] == 'X' && board[1][2] == 'X' && board[1][0] != 'O')
       board[1][0] = 'O';
     
-    if(board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] != 'O')
+    else if(board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] != 'O')
       board[2][2] = 'O';
-    if(board[2][0] == 'X' && board[2][2] == 'X' && board[2][1] != 'O')
+    else if(board[2][0] == 'X' && board[2][2] == 'X' && board[2][1] != 'O')
       board[2][1] = 'O';
-    if(board[2][1] == 'X' && board[2][2] == 'X' && board[2][0] != 'O')
+    else if(board[2][1] == 'X' && board[2][2] == 'X' && board[2][0] != 'O')
       board[2][0] = 'O';
     
-    if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] != 'O')
+    else if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] != 'O')
       board[2][2] = 'O';
-    if(board[2][2] == 'X' && board[0][0] == 'X' && board[1][1] != 'O')
+    else if(board[2][2] == 'X' && board[0][0] == 'X' && board[1][1] != 'O')
       board[1][1] = 'O';
-    if(board[1][1] == 'X' && board[2][2] == 'X' && board[0][0] != 'O')
+    else if(board[1][1] == 'X' && board[2][2] == 'X' && board[0][0] != 'O')
       board[0][0] = 'O';
     
-    if(board[2][0] == 'X' && board[1][1] == 'X' && board[0][2] != 'O')
+    else if(board[2][0] == 'X' && board[1][1] == 'X' && board[0][2] != 'O')
       board[0][2] = 'O';
-    if(board[2][0] == 'X' && board[0][2] == 'X' && board[1][1] != 'O')
+    else if(board[2][0] == 'X' && board[0][2] == 'X' && board[1][1] != 'O')
       board[1][1] = 'O';
-    if(board[1][1] == 'X' && board[0][2] == 'X' && board[2][0] != 'O')
+    else if(board[1][1] == 'X' && board[0][2] == 'X' && board[2][0] != 'O')
       board[2][0] = 'O';
     
     //Strategic moves
@@ -187,161 +210,208 @@ public class TicTacToe
       else if(board[2][2] != 'O' && board[2][2] != 'X')
         board[2][2] = 'O';
     }
+    
+    //random moves
+    else if(board[0][0] != 'X' && board[0][0] != 'O')  
+    {
+      board[0][0] = 'O';
+    }
+    else if(board[2][0] != 'X' && board[2][0] != 'O')  
+    {
+      board[2][0] = 'O';
+    }
+    else if(board[0][2] != 'X' && board[0][2] != 'O')  
+    {
+      board[0][2] = 'O';
+    }
+    else if(board[2][2] != 'X' && board[2][2] != 'O')  
+    {
+      board[2][2] = 'O';
+    }
+    else if(board[0][1] != 'X' && board[0][1] != 'O')  
+    {
+      board[0][1] = 'O';
+    }
+    else if(board[1][0] != 'X' && board[1][0] != 'O')  
+    {
+      board[1][0] = 'O';
+    }
+    else if(board[2][1] != 'X' && board[2][1] != 'O')  
+    {
+      board[2][1] = 'O';
+    }
+    else if(board[1][2] != 'X' && board[1][2] != 'O')  
+    {
+      board[1][2] = 'O';
+    }
+    System.out.println("Computer's previous move:");
+    displayBoard();
+    checkXWin();
+  }
   
-  //random moves
-  else if(board[0][0] != 'X' && board[0][0] != 'O')  
-  {
-    board[0][0] = 'O';
-  }
-  else if(board[2][0] != 'X' && board[2][0] != 'O')  
-  {
-    board[2][0] = 'O';
-  }
-  else if(board[0][2] != 'X' && board[0][2] != 'O')  
-  {
-    board[0][2] = 'O';
-  }
-  else if(board[2][2] != 'X' && board[2][2] != 'O')  
-  {
-    board[2][2] = 'O';
-  }
   
-  System.out.println("Computer's previous move:");
-  displayBoard();
-  checkXWin();
-}
-
-
-
-public static void checkXWin()
-{
-  if (board[1][1] == 'X'){
-    if (board[0][0] == 'X'){
-      if (board[2][2] == 'X'){
-        System.out.println("YOU WIN! New Game:");
-        initialBoard();
+  
+  public static void checkXWin()
+  {
+    if (board[1][1] == 'X'){
+      if (board[0][0] == 'X'){
+        if (board[2][2] == 'X'){
+          System.out.println("YOU WIN! New Game:");
+          initialBoard();
+        }
+      }
+      else if (board[0][1] == 'X'){
+        if (board[2][1] == 'X'){
+          System.out.println("YOU WIN! New Game:");
+          initialBoard();
+        }
+      }
+      else if (board[1][0] == 'X'){
+        if (board[1][2] == 'X'){
+          System.out.println("YOU WIN! New Game:");
+          initialBoard();
+        }
+      }
+      else if (board[2][0] == 'X'){
+        if (board[0][2] == 'X'){
+          System.out.println("YOU WIN! New Game:");
+          initialBoard();
+        }
+      }
+      
+    }
+    else if (board[0][0] == 'X'){
+      if (board[0][1] == 'X'){
+        if (board[0][2] == 'X'){
+          System.out.println("YOU WIN! New Game:");
+          initialBoard();
+        }
+      }
+      else if (board[1][0] == 'X'){
+        if (board[2][0] == 'X'){
+          System.out.println("YOU WIN! New Game:");
+          initialBoard();
+        }
       }
     }
-    else if (board[0][1] == 'X'){
-      if (board[2][1] == 'X'){
-        System.out.println("YOU WIN! New Game:");
-        initialBoard();
+    else if (board[2][2] == 'X'){
+      if (board[0][2] == 'X') {
+        if(board[1][2] == 'X'){
+          System.out.println("YOU WIN! New Game:");
+          initialBoard();
+        }
       }
-    }
-    else if (board[1][0] == 'X'){
-      if (board[1][2] == 'X'){
-        System.out.println("YOU WIN! New Game:");
-        initialBoard();
-      }
-    }
-    else if (board[2][0] == 'X'){
-      if (board[0][2] == 'X'){
-        System.out.println("YOU WIN! New Game:");
-        initialBoard();
+      
+      else if (board[2][0] == 'X') {
+        if (board[2][1] == 'X') {
+          System.out.println("YOU WIN! New Game:");
+          initialBoard();
+        }
       }
     }
     
+    checkOWin();
+    
+    
   }
-  if (board[0][0] == 'X'){
-    if (board[0][1] == 'X'){
-      if (board[0][2] == 'X'){
-        System.out.println("YOU WIN! New Game:");
-        initialBoard();
+  public static void checkOWin()
+  {
+    if (board[1][1] == 'O'){
+      if (board[0][0] == 'O'){
+        if (board[2][2] == 'O'){
+          System.out.println("THE COMPUTER WINS! New Game:");
+          initialBoard();
+          
+        }
+      }
+      else if (board[0][1] == 'O'){
+        if (board[2][1] == 'O'){
+          System.out.println("THE COMPUTER WINS! New Game:");
+          initialBoard();
+          
+        }
+      }
+      else if (board[1][0] == 'O'){
+        if (board[1][2] == 'O'){
+          System.out.println("THE COMPUTER WINS! New Game:");
+          initialBoard();
+          
+        }
+      }
+      else if (board[2][0] == 'O'){
+        if (board[0][2] == 'O'){
+          System.out.println("THE COMPUTER WINS! New Game:");
+          initialBoard();
+          
+        }
+      }
+      
+    }
+    else if (board[0][0] == 'O'){
+      if (board[0][1] == 'O'){
+        if (board[0][2] == 'O'){
+          System.out.println("THE COMPUTER WINS! New Game:");
+          initialBoard();
+          
+        }
+      }
+      else if (board[1][0] == 'O'){
+        if (board[2][0] == 'O'){
+          System.out.println("THE COMPUTER WINS! New Game:");
+          initialBoard();
+          
+        }
       }
     }
-    else if (board[1][0] == 'X'){
-      if (board[2][0] == 'X'){
-        System.out.println("YOU WIN! New Game:");
-        initialBoard();
+    else if (board[2][2] == 'O'){
+      if (board[0][2] == 'O') {
+        if(board[1][2] == 'O'){
+          System.out.println("THE COMPUTER WINS! New Game:");
+          initialBoard();
+          
+        }
       }
-    }
-  }
-  if (board[2][2] == 'X'){
-    if (board[0][2] == 'X') {
-      if(board[1][2] == 'X'){
-        System.out.println("YOU WIN! New Game:");
-        initialBoard();
+      
+      else if (board[2][0] == 'O') {
+        if (board[2][1] == 'O') {
+          System.out.println("THE COMPUTER WINS! New Game:");
+          initialBoard();
+         
+        }
       }
     }
     
-    else if (board[2][0] == 'X') {
-      if (board[2][1] == 'X') {
-        System.out.println("YOU WIN! New Game:");
-        initialBoard();
-      }
-    }
-  }
-  
-  checkOWin();
-  
-  
-}
-public static void checkOWin()
-{
-  if (board[1][1] == 'O'){
-    if (board[0][0] == 'O'){
-      if (board[2][2] == 'O'){
-        System.out.println("THE COMPUTER WINS! New Game:");
-        initialBoard();
-      }
-    }
-    else if (board[0][1] == 'O'){
-      if (board[2][1] == 'O'){
-        System.out.println("THE COMPUTER WINS! New Game:");
-        initialBoard();
-      }
-    }
-    else if (board[1][0] == 'O'){
-      if (board[1][2] == 'O'){
-        System.out.println("THE COMPUTER WINS! New Game:");
-        initialBoard();
-      }
-    }
-    else if (board[2][0] == 'O'){
-      if (board[0][2] == 'O'){
-        System.out.println("THE COMPUTER WINS! New Game:");
-        initialBoard();
-      }
-    }
+    checkTie();
+    
     
   }
-  if (board[0][0] == 'O'){
-    if (board[0][1] == 'O'){
-      if (board[0][2] == 'O'){
-        System.out.println("THE COMPUTER WINS! New Game:");
-        initialBoard();
+  public static void checkTie()
+  {
+    int temp;
+    int temp2;
+    int count = 0;
+    for (temp = 0; temp <= 2; temp++)
+    {
+      for (temp2 = 0; temp2 <= 2; temp2++)
+      {
+        if (board[temp][temp2] == 'X' || board[temp][temp2] == 'O'){
+          count++;
+        }
       }
     }
-    else if (board[1][0] == 'O'){
-      if (board[2][0] == 'O'){
-        System.out.println("THE COMPUTER WINS! New Game:");
-        initialBoard();
-      }
+    if (count == 8)
+    {
+      System.out.println("IT'S A TIE!");
+      initialBoard();
+      
     }
-  }
-  if (board[2][2] == 'O'){
-    if (board[0][2] == 'O') {
-      if(board[1][2] == 'O'){
-        System.out.println("THE COMPUTER WINS! New Game:");
-        initialBoard();
-      }
-    }
-    
-    else if (board[2][0] == 'O') {
-      if (board[2][1] == 'O') {
-        System.out.println("THE COMPUTER WINS! New Game:");
-        initialBoard();
-      }
-    }
+    else getInfo();
   }
   
-  getInfo();
   
   
-}
+} 
 
-
-}
 
 
 
