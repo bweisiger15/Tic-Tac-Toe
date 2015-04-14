@@ -9,16 +9,29 @@ public class TicTacToe
   {
     Scanner keyboard = new Scanner(System.in);
     
+    //welcome message
     System.out.println("Welcome! You'll play as X's");
-    
-    displayBoard();
     initialBoard();
-    
+     displayBoard();
     
     
   }
   
-  public static void determineStarter()
+  
+  
+  public static void initialBoard()
+  {
+    // the board is blank
+    for ( int r=0; r<3; r++ ){
+      for ( int c=0; c<3; c++ )
+    {
+      board[r][c] = ' ';
+    }
+    }
+    determineStarter();
+  }
+  
+  public static void determineStarter() //random first player
   {
     int randomNum = (int)(Math.random()*10);
     if (randomNum > 5)
@@ -33,15 +46,6 @@ public class TicTacToe
     }
   }
   
-  public static void initialBoard()
-  {
-    // the board is blank
-    for ( int r=0; r<3; r++ )
-      for ( int c=0; c<3; c++ )
-      board[r][c] = ' ';
-    determineStarter();
-  }
-  
   
   public static void displayBoard()
   {
@@ -51,13 +55,11 @@ public class TicTacToe
     System.out.println("    --+-+--");
     System.out.println("  2  " + board[2][0] + "|" + board[2][1] + "|" + board[2][2]);
     System.out.println("     0 1 2 ");
-    System.out.println("--------------------------------------------------------");
   }
+  
+  
   //use scanner for user's desired row/col
   //place their label in that row/col
-  
-  
-  
   public static void getInfo()
   {
     System.out.println("Enter the row (0, 1 or 2)");
@@ -72,16 +74,17 @@ public class TicTacToe
       board[row][col] = 'X';
       
     }
-    else 
+    else //if space is already taken
     {
       System.out.println("Someone already went there! Choose another space!");
       getInfo();
     }
     System.out.println("Your previous move:");
     displayBoard();
-    compPlayer();
+    checkXWin();
+   
   }
-  /////////////////////////////////////////////////////
+ 
   public static void compPlayer()
   {
     //ideal first move (middle)
@@ -139,10 +142,10 @@ public class TicTacToe
     else if(board[0][1] == 'O' && board[2][1] == 'O' && board[1][1] != 'X')
       board[1][1] = 'O';
     
-    else if(board[2][2] == 'O' && board[1][2] == 'O' && board[0][2] != 'X')
-      board[0][2] = 'O';
     else if(board[0][2] == 'O' && board[2][2] == 'O' && board[1][2] != 'X')
       board[1][2] = 'O';
+    else if(board[2][2] == 'O' && board[1][2] == 'O' && board[0][2] != 'X')
+      board[0][2] = 'O';
     else if(board[1][2] == 'O' && board[0][2] == 'O' && board[2][2] != 'X')
       board[2][2] = 'O';
     ////BLOCKS
@@ -181,6 +184,26 @@ public class TicTacToe
     else if(board[1][1] == 'X' && board[0][2] == 'X' && board[2][0] != 'O')
       board[2][0] = 'O';
     
+    else if(board[2][1] == 'X' && board[1][1] == 'X' && board[0][1] != 'O')
+      board[0][1] = 'O';
+    else if(board[2][1] == 'X' && board[0][1] == 'X' && board[1][1] != 'O')
+      board[1][1] = 'O';
+    else if(board[1][1] == 'X' && board[0][1] == 'X' && board[2][1] != 'O')
+      board[2][1] = 'O';
+    
+    else if(board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] != 'O')
+      board[2][0] = 'O';
+    else if(board[1][0] == 'X' && board[2][0] == 'X' && board[0][0] != 'O')
+      board[0][0] = 'O';
+    else if(board[0][0] == 'X' && board[2][0] == 'X' && board[1][0] != 'O')
+      board[1][0] = 'O';
+    
+    else if(board[2][2] == 'X' && board[1][2] == 'X' && board[0][2] != 'O')
+      board[0][2] = 'O';
+    else if(board[2][2] == 'X' && board[0][2] == 'X' && board[1][2] != 'O')
+      board[1][2] = 'O';
+    else if(board[1][2] == 'X' && board[0][2] == 'X' && board[2][2] != 'O')
+      board[2][2] = 'O';
     //Strategic moves
     else if(board[1][1] == 'O' && board[0][0] == 'O')
     {
@@ -246,12 +269,12 @@ public class TicTacToe
     }
     System.out.println("Computer's previous move:");
     displayBoard();
-    checkXWin();
+    checkOWin();
   }
   
   
   
-  public static void checkXWin()
+  public static void checkXWin() //check for three X's in a row/col/diagonal
   {
     if (board[1][1] == 'X'){
       if (board[0][0] == 'X'){
@@ -310,11 +333,11 @@ public class TicTacToe
       }
     }
     
-    checkOWin();
+    compPlayer();
     
     
   }
-  public static void checkOWin()
+  public static void checkOWin() //check for three O's in a row/col/diagonal
   {
     if (board[1][1] == 'O'){
       if (board[0][0] == 'O'){
@@ -385,7 +408,7 @@ public class TicTacToe
     
     
   }
-  public static void checkTie()
+  public static void checkTie() //check for a full board
   {
     int temp;
     int temp2;
@@ -401,7 +424,7 @@ public class TicTacToe
     }
     if (count == 9)
     {
-      System.out.println("IT'S A TIE!");
+      System.out.println("IT'S A TIE! New game: ");
       initialBoard();
       
     }
